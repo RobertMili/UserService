@@ -16,8 +16,8 @@ public class UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found")).getUserName();
     }
-    public String getPictureLink (Long userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found")).getPictureLink();
-    }
+//    public String getPictureLink (Long userId) {
+//        return userRepository.findById(userId)
+//                .orElseThrow(() -> new RuntimeException("User not found")).getPictureLink();
+//    }
 }

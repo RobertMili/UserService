@@ -4,9 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 public class User {
 
@@ -17,41 +21,17 @@ public class User {
 
     @Lob
     private String userName;
-    private String pictureLink;
+
 
 
     public User(Long id, String userName, String pictureLink) {
         this.id = id;
         this.userName = userName;
-        this.pictureLink = pictureLink;
+
     }
 
     public User() {
 
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPictureLink() {
-        return pictureLink;
-    }
-
-    public void setPictureLink(String pictureLink) {
-        this.pictureLink = pictureLink;
     }
 
     @Override
@@ -59,7 +39,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(pictureLink, user.pictureLink);
+        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName);
     }
 
     @Override

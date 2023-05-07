@@ -8,15 +8,19 @@ import lombok.Setter;
 public class UserDto {
 
     private Long id;
-    private String name;
-
 
     public UserDto() {
 
     }
 
-    public UserDto(Long id, String name) {
+    public UserDto(Long id) {
         this.id = id;
-        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "id=" + id +
+                '}';
     }
 }
