@@ -6,6 +6,8 @@ import com.example.userservice.service.UserService;
 import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -19,6 +21,10 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
+    @GetMapping
+    List<User> getUser(){
+        return userRepository.findAll();
+    }
     @GetMapping("/{userId}")
     public String getName(@PathVariable("userId") Long userId) {
         return userService.getName(userId);
