@@ -13,10 +13,11 @@ public class User {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Lob
+    @Column(unique = true)
     private String userName;
     private String pictureLink;
 
