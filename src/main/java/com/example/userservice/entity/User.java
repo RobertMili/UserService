@@ -1,9 +1,6 @@
 package com.example.userservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +18,7 @@ public class User {
 
     @Lob
     private String userName;
+    private String pictureLink;
 
 
 
@@ -39,7 +37,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName);
+        return Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(pictureLink, user.pictureLink);
     }
 
     @Override

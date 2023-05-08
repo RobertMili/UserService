@@ -27,12 +27,13 @@ public class UserController {
     }
     @GetMapping("/{userId}")
     public String getName(@PathVariable("userId") Long userId) {
+        var userImage = userService.getPictureLink(userId);
         return userService.getName(userId);
     }
-//    @GetMapping("/{userId}/pictureLink")
-//    public String getPictureLink (@PathVariable("userId") Long userId) {
-//        return userService.getPictureLink(userId);
-//    }
+    @GetMapping("/{userId}/pictureLink")
+    public String getPictureLink (@PathVariable("userId") Long userId) {
+        return userService.getPictureLink(userId);
+    }
     @PostMapping
     void addUser(@RequestBody User user) {
         String name = user.getUserName();
