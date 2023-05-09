@@ -20,4 +20,10 @@ public class UserService {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found")).getPictureLink();
     }
+
+//    public String getNames(String userId) {
+//        System.out.println(userId);
+//
+//        return null;
+//    }
 }

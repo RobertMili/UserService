@@ -25,19 +25,23 @@ public class UserController {
     List<User> getUser(){
         return userRepository.findAll();
     }
-    @GetMapping("/{userId}")
-    public String getName(@PathVariable("userId") Long userId) {
-        var userImage = userService.getPictureLink(userId);
-        return userService.getName(userId);
+
+    @GetMapping("/{userIds}")
+    List<User> getUser(@PathVariable List<Long> userIds) {
+        return userRepository.findAllById(userIds);
     }
+
     @GetMapping("/{userId}/pictureLink")
     public String getPictureLink (@PathVariable("userId") Long userId) {
         return userService.getPictureLink(userId);
     }
+
     @PostMapping
     void addUser(@RequestBody User user) {
         String name = user.getUserName();
         userRepository.save(user);
     }
+
+
 
 }
